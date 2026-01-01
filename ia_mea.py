@@ -51,25 +51,6 @@ st.sidebar.write(f"🕒 **{txt_ora}:** {ora_fr}")
 st.sidebar.write(f"📅 **{txt_data}:** {data_fr}")
 st.write(f"✅ {status} | {txt_ora}: {ora_fr}")
 
-# Creăm căsuța unde scrii tu sau prietenul tău
-prompt = st.chat_input(placeholder)
-
-if prompt:
-    # Afișăm ce ai scris tu
-    st.chat_message("user").write(prompt)
-    
-    # Trimitem întrebarea la creierul IA
-    raspuns = client.chat.completions.create(
-      model="llama-3.3-70b-versatile",
-           messages=[
-            {"role": "system", "content": f"Tu ești NexusIA. Răspunde scurt și prietenos în limba {limba}."},
-            {"role": "user", "content": prompt}
-        ]
-    )
-    
-    # Afișăm ce răspunde IA-ul
-    st.chat_message("assistant").write(raspuns.choices[0].message.content)
-
 # --- MENIU LATERAL ---
 with st.sidebar:
     st.title("🛰️ NexusIA")
@@ -157,6 +138,7 @@ elif optiune == "Evoluție":
     if st.button("Sfat din spatiu"):
         st.balloons()
         st.write("Succesul este suma micilor eforturi repetate zi de zi.")
+
 
 
 
