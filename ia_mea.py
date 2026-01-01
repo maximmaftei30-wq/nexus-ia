@@ -27,6 +27,30 @@ st.sidebar.title("NexusIA")
 st.sidebar.write(f"🕒 **Ora actuală:** {ora_fr}")
 st.sidebar.write(f"📅 **Data:** {data_fr}")
 
+limba = st.sidebar.selectbox("🌐 Limba / Langue", ["Română", "Français", "English"])
+if limba == "Română":
+    titlu = "Nucleul NexusIA"
+    status = "Status: Online"
+    txt_ora = "Ora actuală"
+    txt_data = "Data"
+    placeholder = "Introdu comanda..."
+elif limba == "Français":
+    titlu = "Le Noyau NexusIA"
+    status = "Statut: En ligne"
+    txt_ora = "Heure actuelle"
+    txt_data = "Date"
+    placeholder = "Entrez votre commande..."
+else:
+    titlu = "NexusIA Core"
+    status = "Status: Online"
+    txt_ora = "Current Time"
+    txt_data = "Date"
+    placeholder = "Enter command..."
+    st.title(f"🧠 {titlu}")
+st.sidebar.write(f"🕒 **{txt_ora}:** {ora_fr}")
+st.sidebar.write(f"📅 **{txt_data}:** {data_fr}")
+st.write(f"✅ {status} | {txt_ora}: {ora_fr}")
+
 # --- MENIU LATERAL ---
 with st.sidebar:
     st.title("🛰️ NexusIA")
@@ -114,6 +138,7 @@ elif optiune == "Evoluție":
     if st.button("Sfat din spatiu"):
         st.balloons()
         st.write("Succesul este suma micilor eforturi repetate zi de zi.")
+
 
 
 
