@@ -14,12 +14,16 @@ import streamlit as st
 import pytz
 from datetime import datetime
 
-# Aici îi spunem exact ce înseamnă ora pentru Franța
+# Setăm zona orară pentru Franța
 zona_orara = pytz.timezone('Europe/Paris')
-ora_fr = datetime.now(zona_orara).strftime("%H:%M:%S")
-data_fr = datetime.now(zona_orara).strftime("%d %B %Y")
+acum = datetime.now(zona_orara)
 
-# Acum robotul știe ce este "ora_fr"
+# Pregătim ora și data
+ora_fr = acum.strftime("%H:%M:%S")
+data_fr = acum.strftime("%d/%m/%Y") # O să arate ceva de genul 01/01/2026
+
+# Le afișăm în stânga, în sidebar
+st.sidebar.title("NexusIA")
 st.sidebar.write(f"🕒 **Ora actuală:** {ora_fr}")
 st.sidebar.write(f"📅 **Data:** {data_fr}")
 
@@ -110,6 +114,7 @@ elif optiune == "Evoluție":
     if st.button("Sfat din spatiu"):
         st.balloons()
         st.write("Succesul este suma micilor eforturi repetate zi de zi.")
+
 
 
 
