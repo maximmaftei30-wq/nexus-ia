@@ -10,11 +10,16 @@ client = OpenAI(
 
 st.set_page_config(page_title="NexusIA 2026", layout="wide")
 
-# Timp real (Data + Ora)
-acum = datetime.datetime.now()
+import streamlit as st
 import pytz
 from datetime import datetime
 
+# Aici definim ora pentru Franța (Paris)
+timezone_fr = pytz.timezone('Europe/Paris')
+ora_actuala = datetime.now(timezone_fr).strftime("%H:%M:%S")
+
+# Acum afișăm ora folosind variabila corectă
+st.sidebar.write(f"🕒 **Ora actuală:** {ora_actuala}")
 # Această linie îi spune site-ului să folosească ora de la Paris
 timezone_fr = pytz.timezone('Europe/Paris')
 ora_actuala = datetime.now(timezone_fr).strftime("%H:%M:%S")
@@ -111,4 +116,5 @@ elif optiune == "Evoluție":
     if st.button("Sfat din spatiu"):
         st.balloons()
         st.write("Succesul este suma micilor eforturi repetate zi de zi.")
+
 
