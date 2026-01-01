@@ -24,8 +24,6 @@ st.sidebar.write(f"🕒 **Ora actuală:** {ora_fr}")
 # --- MENIU LATERAL ---
 with st.sidebar:
     st.title("🛰️ NexusIA")
-    st.write(f"🕒 **Ora actuală:** {ora_ro}")
-    st.write(f"📅 **Data:** {data_ro}")
     st.markdown("---")
     # Numele de aici trebuie să fie identic cu cel din IF-ul de mai jos
     optiune = st.selectbox("Mod de operare:", ["NexusIA (Universal)", "Inginer", "Chef", "Evoluție"])
@@ -35,7 +33,7 @@ with st.sidebar:
 # --- 1. MODUL: NexusIA (UNIVERSAL) ---
 if optiune == "NexusIA (Universal)":
     st.title(f"🧠 Nucleul NexusIA")
-    st.subheader(f"Status: Online | Timp sistem: {ora_ro}")
+    st.subheader(f"Status: Online | Timp sistem: {ora_fr}")
     
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = []
@@ -56,7 +54,7 @@ if optiune == "NexusIA (Universal)":
 
         with st.chat_message("assistant"):
             with st.spinner("Sincronizare cu baza de date..."):
-                sys_prompt = f"Ești NexusIA. Azi e {data_ro}, ora {ora_ro}. Ești un sistem creat de Maxim."
+                sys_prompt = f"Ești NexusIA. Ești un sistem creat de Maxim."
                 res = client.chat.completions.create(
                     model="llama-3.3-70b-versatile",
                     messages=[{"role": "system", "content": sys_prompt}] + st.session_state.chat_history,
@@ -110,6 +108,7 @@ elif optiune == "Evoluție":
     if st.button("Sfat din spatiu"):
         st.balloons()
         st.write("Succesul este suma micilor eforturi repetate zi de zi.")
+
 
 
 
