@@ -47,9 +47,9 @@ else:
     txt_data = "Date"
     placeholder = "Enter command..."
     st.title(f"🧠 {titlu}")
-st.sidebar.write(f"🕒 **{txt_ora}:** {ora_fr}")
-st.sidebar.write(f"📅 **{txt_data}:** {data_fr}")
-st.write(f"✅ {status} | {txt_ora}: {ora_fr}")
+st.sidebar.write(f"🕒 **{txt_ora}
+st.sidebar.write(f"📅 **{txt_data}
+st.write(f"✅ {status} | {txt_ora}
 
 # --- MENIU LATERAL ---
 with st.sidebar:
@@ -138,6 +138,7 @@ elif optiune == "Evoluție":
     if st.button("Sfat din spatiu"):
         st.balloons()
         st.write("Succesul este suma micilor eforturi repetate zi de zi.")
+
 
 
 
