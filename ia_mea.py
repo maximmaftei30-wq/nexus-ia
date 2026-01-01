@@ -17,9 +17,11 @@ from datetime import datetime
 # Aici îi spunem exact ce înseamnă ora pentru Franța
 zona_orara = pytz.timezone('Europe/Paris')
 ora_fr = datetime.now(zona_orara).strftime("%H:%M:%S")
+data_fr = datetime.now(zona_orara).strftime("%d %B %Y")
 
 # Acum robotul știe ce este "ora_fr"
 st.sidebar.write(f"🕒 **Ora actuală:** {ora_fr}")
+st.sidebar.write(f"📅 **Data:** {data_fr}")
 
 # --- MENIU LATERAL ---
 with st.sidebar:
@@ -108,6 +110,7 @@ elif optiune == "Evoluție":
     if st.button("Sfat din spatiu"):
         st.balloons()
         st.write("Succesul este suma micilor eforturi repetate zi de zi.")
+
 
 
 
