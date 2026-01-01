@@ -14,18 +14,12 @@ import streamlit as st
 import pytz
 from datetime import datetime
 
-# Aici definim ora pentru Franța (Paris)
-timezone_fr = pytz.timezone('Europe/Paris')
-ora_actuala = datetime.now(timezone_fr).strftime("%H:%M:%S")
+# Aici îi spunem exact ce înseamnă ora pentru Franța
+zona_orara = pytz.timezone('Europe/Paris')
+ora_fr = datetime.now(zona_orara).strftime("%H:%M:%S")
 
-# Acum afișăm ora folosind variabila corectă
-st.sidebar.write(f"🕒 **Ora actuală:** {ora_actuala}")
-# Această linie îi spune site-ului să folosească ora de la Paris
-timezone_fr = pytz.timezone('Europe/Paris')
-ora_actuala = datetime.now(timezone_fr).strftime("%H:%M:%S")
-
-# Acum, oriunde folosești ora în site (st.write sau st.sidebar), 
-# folosește variabila "ora_actuala"
+# Acum robotul știe ce este "ora_fr"
+st.sidebar.write(f"🕒 **Ora actuală:** {ora_fr}")
 
 # --- MENIU LATERAL ---
 with st.sidebar:
@@ -116,5 +110,6 @@ elif optiune == "Evoluție":
     if st.button("Sfat din spatiu"):
         st.balloons()
         st.write("Succesul este suma micilor eforturi repetate zi de zi.")
+
 
 
