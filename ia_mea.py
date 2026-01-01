@@ -12,8 +12,15 @@ st.set_page_config(page_title="NexusIA 2026", layout="wide")
 
 # Timp real (Data + Ora)
 acum = datetime.datetime.now()
-data_ro = acum.strftime("%d %B %Y")
-ora_ro = acum.strftime("%H:%M:%S")
+import pytz
+from datetime import datetime
+
+# Această linie îi spune site-ului să folosească ora de la Paris
+timezone_fr = pytz.timezone('Europe/Paris')
+ora_actuala = datetime.now(timezone_fr).strftime("%H:%M:%S")
+
+# Acum, oriunde folosești ora în site (st.write sau st.sidebar), 
+# folosește variabila "ora_actuala"
 
 # --- MENIU LATERAL ---
 with st.sidebar:
@@ -104,3 +111,4 @@ elif optiune == "Evoluție":
     if st.button("Sfat din spatiu"):
         st.balloons()
         st.write("Succesul este suma micilor eforturi repetate zi de zi.")
+
