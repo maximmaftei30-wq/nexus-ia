@@ -27,12 +27,6 @@ st.sidebar.title("NexusIA")
 st.sidebar.write(f"🕒 **Ora actuală:** {ora_fr}")
 st.sidebar.write(f"📅 **Data:** {data_fr}")
 
-# Pentru română:
-prompt = st.chat_input("Introdu comanda pentru NexusIA...")
-
-# Pentru franceză:
-# prompt = st.chat_input("Entrez votre commande...")
-
 # --- MENIU LATERAL ---
 with st.sidebar:
     st.title("🛰️ NexusIA")
@@ -120,6 +114,7 @@ elif optiune == "Evoluție":
     if st.button("Sfat din spatiu"):
         st.balloons()
         st.write("Succesul este suma micilor eforturi repetate zi de zi.")
+
 
 
 
