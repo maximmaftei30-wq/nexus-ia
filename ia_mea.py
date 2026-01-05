@@ -5,7 +5,7 @@ import datetime
 # --- CONFIGURARE ---
 client = OpenAI(
     base_url="https://api.groq.com/openai/v1",
-    api_key="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" 
+    api_key="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" 
 )
 
 st.set_page_config(page_title="NexusIA 2026", layout="wide")
@@ -114,6 +114,7 @@ elif optiune == "Evoluție":
     if st.button("Sfat din spatiu"):
         st.balloons()
         st.write("Succesul este suma micilor eforturi repetate zi de zi.")
+
 
 
 
