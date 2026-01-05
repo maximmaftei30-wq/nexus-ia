@@ -129,3 +129,4 @@ elif optiune == "Evoluție":
 
 
 
+
