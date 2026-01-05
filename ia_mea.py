@@ -62,7 +62,7 @@ if optiune == "NexusIA (Universal)":
             with st.spinner("Sincronizare cu baza de date..."):
                 sys_prompt = f"Ești NexusIA. Ești un sistem creat de Maxim."
                 res = client.chat.completions.create(
-                    model="llama-3.3-70b-versatile",
+                    model="llama3-8b-8192",
                     messages=[{"role": "system", "content": sys_prompt}] + st.session_state.chat_history,
                     temperature=0.2
                 )
@@ -85,7 +85,7 @@ elif optiune == "Inginer":
     q = st.text_input("Ce vrei să verificăm pe șantier?")
     if st.button("Analizează"):
         res = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model="llama3-8b-8192",
             messages=[{"role": "user", "content": f"Răspunde ca un inginer expert: {q}"}]
         )
         st.info(res.choices[0].message.content)
@@ -96,7 +96,7 @@ elif optiune == "Chef":
     ing = st.text_input("Ce ingrediente ai?")
     if st.button("Creează Rețetă"):
         res = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model="llama3-8b-8192",
             messages=[{"role": "user", "content": f"Fă o rețetă cu: {ing}"}]
         )
         st.success(res.choices[0].message.content)
@@ -114,6 +114,7 @@ elif optiune == "Evoluție":
     if st.button("Sfat din spatiu"):
         st.balloons()
         st.write("Succesul este suma micilor eforturi repetate zi de zi.")
+
 
 
 
